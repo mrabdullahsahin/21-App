@@ -17,6 +17,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        //UIWindow sınıfına bağlı bir ekran oluşturuyoruz.
+        window = UIWindow(frame: UIScreen.main.bounds)
+        
+        //window nesnemizi görünür kılıyoruz.
+        window?.makeKeyAndVisible()
+        
+        //window nesnemizin rootViewController durumunu mainScreenVC olarak ayarladık.
+        window?.rootViewController = UINavigationController(rootViewController: mainScreenVC())
         return true
     }
 
