@@ -12,5 +12,12 @@ class mainScreenVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //arkaplan nesne belirlendi ve resim atandı.
+        let backgroundImage = #imageLiteral(resourceName: "background")
+        //view nesnemiz için arka plan görseli olarak background nesnesi atandı.
+        self.view.backgroundColor = UIColor(patternImage: backgroundImage)
+        
+        
     }
 }
