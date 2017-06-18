@@ -50,8 +50,7 @@ class thanksScreenVC: UIViewController {
     //MARK: startButton nesnesi oluşturuldu.
     let startButton: UIButton = {
         let button = UIButton()
-        let buttonbg = #imageLiteral(resourceName: "next_button_bg")
-        button.setImage(buttonbg, for: .normal)
+        button.setImage(#imageLiteral(resourceName: "next_button_bg"), for: .normal)
         //button.setTitle("Kullanmaya Başla", for: UIControlState)
         button.addTarget(self, action: #selector(nextAction), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
