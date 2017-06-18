@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         //window nesnemizin rootViewController durumunu mainScreenVC olarak ayarladık.
-        window?.rootViewController = UINavigationController(rootViewController: mainScreenVC())
+        window?.rootViewController = UINavigationController(rootViewController: thanksScreenVC())
         return true
     }
 
