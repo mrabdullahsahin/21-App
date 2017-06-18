@@ -10,6 +10,18 @@ import UIKit
 
 class thanksScreenVC: UIViewController {
     
+    //MARK: Main fonksiyonu
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        //arkaplan nesne belirlendi ve resim atandı.
+        let backgroundImage = #imageLiteral(resourceName: "background")
+        //view nesnemiz için arka plan görseli olarak background nesnesi atandı.
+        self.view.backgroundColor = UIColor(patternImage: backgroundImage)
+        
+        setupViews()
+    }
+    
     //MARK: welcomeLabel nesnesi oluşturuldu.
     let welcomeLabel: UILabel = {
         let label = UILabel()
@@ -55,18 +67,6 @@ class thanksScreenVC: UIViewController {
         image.contentMode = .center
         return image
     }()
-    
-    //MARK: Main fonksiyonu
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        //arkaplan nesne belirlendi ve resim atandı.
-        let backgroundImage = #imageLiteral(resourceName: "background")
-        //view nesnemiz için arka plan görseli olarak background nesnesi atandı.
-        self.view.backgroundColor = UIColor(patternImage: backgroundImage)
-        
-        setupViews()
-    }
     
     //MARK: navigationBar gizlendi.
     override func viewWillAppear(_ animated: Bool) {
