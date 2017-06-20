@@ -55,7 +55,7 @@ class gamefinishedScreenVC: UIViewController {
     let senteceLabel: UILabel = {
        let label = UILabel()
         label.text = winnerSentece[0]
-        label.numberOfLines = 2
+        label.numberOfLines = 5
         label.textColor = UIColor.black
         label.font = UIFont(name: "Avenir-Book", size: 18)
         label.textAlignment = .center
@@ -92,7 +92,7 @@ class gamefinishedScreenVC: UIViewController {
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[senteceLabel]-10-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["senteceLabel" : senteceLabel]))
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[mainButton]-20-[bottomLayoutGuide]", options: NSLayoutFormatOptions(), metrics: nil, views: ["mainButton" : mainButton, "bottomLayoutGuide" : bottomLayoutGuide]))
 
-        //MARK: Nesnelerin birbiri iel olan constraint değerleri belirleniyor.
+        //MARK: Nesnelerin birbiri ile olan constraint değerleri belirleniyor.
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[topLayoutGuide]-120-[winLabel]", options: NSLayoutFormatOptions(), metrics: nil, views: ["topLayoutGuide" : topLayoutGuide, "winLabel" : winLabel]))
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[winLabel]-110-[senteceLabel]", options: NSLayoutFormatOptions(), metrics: nil, views: ["winLabel" : winLabel, "senteceLabel" : senteceLabel]))
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[senteceLabel]-200-[mainButton]", options: NSLayoutFormatOptions(), metrics: nil, views: ["senteceLabel" : senteceLabel, "mainButton" : mainButton]))
