@@ -48,9 +48,11 @@ class thanksScreenVC: UIViewController {
     //MARK: startButton nesnesi oluşturuldu.
     let startButton: UIButton = {
         let button = UIButton()
-        button.setImage(#imageLiteral(resourceName: "next_button_bg"), for: .normal)
-        button.setTitle("Kullanmaya Başla", for: .normal)
-        button.setTitleColor(UIColor.white, for: .normal)
+        button.backgroundColor = UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0)
+        button.layer.cornerRadius = 5
+        button.setTitle("Kullanmaya Başla", for: UIControlState.normal)
+        button.setTitleColor(UIColor.white, for: UIControlState.normal)
+        button.titleLabel?.font = UIFont(name: "Avenir-Book", size: 24)
         button.addTarget(self, action: #selector(nextAction), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -80,7 +82,8 @@ class thanksScreenVC: UIViewController {
     
     //MARK: nextAction durumu
     func nextAction(sender: UIButton!){
-        
+        //MARK: mainScreenVC view'ini show yapıyor.
+        self.navigationController?.pushViewController(mainScreenVC(), animated: true)
     }
     
     //MARK: nesnelerin ekrandaki düzenleri belirleniyor.
@@ -104,11 +107,11 @@ class thanksScreenVC: UIViewController {
         
         let startButtonTop = NSLayoutConstraint(item: startButton, attribute: .top, relatedBy: .equal, toItem: self.thanksLabel, attribute: .top, multiplier: 1.0, constant: 100.0)
         let startButtonCenter = NSLayoutConstraint(item: startButton, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1.0, constant: 0.0)
-        //let startButtonLeading = NSLayoutConstraint(item: startButton, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1.0, constant: 100.0)
-        
+        let startButtonHeight = NSLayoutConstraint(item: startButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 50)
+        let startButtonWidth = NSLayoutConstraint(item: startButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 230)
         
         //MARK: Nesnelerin constraint değerleri ekrana ekleniyor.
-        NSLayoutConstraint.activate([welcomeLabelTop,welcomeLabelCenter,logoTop,logoCenter,thanksLabelTop,thanksLabelLeading,thanksLabelCenter,startButtonTop,startButtonCenter])
+        NSLayoutConstraint.activate([welcomeLabelTop,welcomeLabelCenter,logoTop,logoCenter,thanksLabelTop,thanksLabelLeading,thanksLabelCenter,startButtonTop,startButtonCenter,startButtonHeight,startButtonWidth])
     }
     
 }

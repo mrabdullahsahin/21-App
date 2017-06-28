@@ -15,6 +15,8 @@
 		B884F1CC1EF6BB6700A7C394 /* thanksScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B884F1CB1EF6BB6700A7C394 /* thanksScreenVC.swift */; };
 		B884F1CE1EF6BC0D00A7C394 /* mainScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B884F1CD1EF6BC0D00A7C394 /* mainScreenVC.swift */; };
 		B884F1D21EF7280F00A7C394 /* gamefinishedScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B884F1D11EF7280F00A7C394 /* gamefinishedScreenVC.swift */; };
+		B8DB06851F03CA6100F064F4 /* gameScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DB06841F03CA6100F064F4 /* gameScreenVC.swift */; };
+		B8DB06871F03CACB00F064F4 /* howToPlayScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DB06861F03CACB00F064F4 /* howToPlayScreenVC.swift */; };
 		B8FC463A1EF906A2007A9B28 /* gamestoppedScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FC46391EF906A2007A9B28 /* gamestoppedScreenVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +31,8 @@
 		B884F1CB1EF6BB6700A7C394 /* thanksScreenVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = thanksScreenVC.swift; sourceTree = "<group>"; };
 		B884F1CD1EF6BC0D00A7C394 /* mainScreenVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mainScreenVC.swift; sourceTree = "<group>"; };
 		B884F1D11EF7280F00A7C394 /* gamefinishedScreenVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = gamefinishedScreenVC.swift; path = ../gamefinishedScreenVC.swift; sourceTree = "<group>"; };
+		B8DB06841F03CA6100F064F4 /* gameScreenVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gameScreenVC.swift; sourceTree = "<group>"; };
+		B8DB06861F03CACB00F064F4 /* howToPlayScreenVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = howToPlayScreenVC.swift; path = ../howToPlayScreenVC.swift; sourceTree = "<group>"; };
 		B8FC46391EF906A2007A9B28 /* gamestoppedScreenVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gamestoppedScreenVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,8 +69,10 @@
 				B884F1B41EF3B1F700A7C394 /* AppDelegate.swift */,
 				B884F1CB1EF6BB6700A7C394 /* thanksScreenVC.swift */,
 				B884F1CD1EF6BC0D00A7C394 /* mainScreenVC.swift */,
+				B8DB06841F03CA6100F064F4 /* gameScreenVC.swift */,
 				B884F1D11EF7280F00A7C394 /* gamefinishedScreenVC.swift */,
 				B8FC46391EF906A2007A9B28 /* gamestoppedScreenVC.swift */,
+				B8DB06861F03CACB00F064F4 /* howToPlayScreenVC.swift */,
 				B807DFA41EF94A9B00829835 /* settingsScreenVC.swift */,
 				B884F1BE1EF3B1F700A7C394 /* Assets.xcassets */,
 				B884F1C01EF3B1F700A7C394 /* LaunchScreen.storyboard */,
@@ -147,8 +153,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8DB06851F03CA6100F064F4 /* gameScreenVC.swift in Sources */,
 				B884F1BD1EF3B1F700A7C394 /* App_21.xcdatamodeld in Sources */,
 				B884F1CC1EF6BB6700A7C394 /* thanksScreenVC.swift in Sources */,
+				B8DB06871F03CACB00F064F4 /* howToPlayScreenVC.swift in Sources */,
 				B8FC463A1EF906A2007A9B28 /* gamestoppedScreenVC.swift in Sources */,
 				B884F1B51EF3B1F700A7C394 /* AppDelegate.swift in Sources */,
 				B807DFA51EF94A9B00829835 /* settingsScreenVC.swift in Sources */,

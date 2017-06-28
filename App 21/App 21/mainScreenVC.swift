@@ -35,7 +35,7 @@ class mainScreenVC: UIViewController {
         let label = UILabel()
         label.text = "21"
         label.numberOfLines = 1
-        label.textColor = UIColor.black
+        label.textColor = UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0)
         label.font = UIFont(name: "Avenir-Book", size: 100)
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -45,8 +45,12 @@ class mainScreenVC: UIViewController {
     //MARK: baslatButton nesnesi oluşturuldu.
     let baslatButton: UIButton = {
         let button = UIButton()
-        button.setImage(#imageLiteral(resourceName: "button_Bg"), for: .normal)
-        //button.setTitle("Başlat", for: .application)
+        button.backgroundColor = UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0)
+        button.layer.cornerRadius = 5
+        button.setTitle("Başlat", for: UIControlState.normal)
+        button.setTitleColor(UIColor.white, for: UIControlState.normal)
+        button.titleLabel?.font = UIFont(name: "Avenir-Book", size: 36)
+        button.addTarget(self, action: #selector(startButton), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -54,7 +58,12 @@ class mainScreenVC: UIViewController {
     //MARK: nasiloynanirButton nesnesi oluşturuldu.
     let nasiloynanirButton: UIButton = {
         let button = UIButton()
-        button.setImage(#imageLiteral(resourceName: "button_Bg"), for: .normal)
+        button.backgroundColor = UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0)
+        button.layer.cornerRadius = 5
+        button.setTitle("Nasıl Oynanır", for: UIControlState.normal)
+        button.setTitleColor(UIColor.white, for: UIControlState.normal)
+        button.titleLabel?.font = UIFont(name: "Avenir-Book", size: 36)
+        button.addTarget(self, action: #selector(howToPlayButton), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -62,11 +71,30 @@ class mainScreenVC: UIViewController {
     //MARK: ayarlarButton nesnesi oluşturuldu.
     let ayarlarButton: UIButton = {
         let button = UIButton()
-        button.setImage(#imageLiteral(resourceName: "button_Bg"), for: .normal)
+        button.backgroundColor = UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0)
+        button.layer.cornerRadius = 5
+        button.setTitle("Ayarlar", for: UIControlState.normal)
+        button.setTitleColor(UIColor.white, for: UIControlState.normal)
+        button.titleLabel?.font = UIFont(name: "Avenir-Book", size: 36)
+        button.addTarget(self, action: #selector(settingsButton), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
+    //MARK: startButton fonksiyonu. Oyunu başlatan buton.
+    func startButton(sender: UIButton!){
+        self.navigationController?.pushViewController(gameScreenVC(), animated: true)
+    }
+    
+    //MARK: howToPlayButton fonksiyonu. Nasıl oyunur ekranına gitmesini sağlayan buton.
+    func howToPlayButton(sender: UIButton!){
+        self.navigationController?.pushViewController(howToPlayScreenVC(), animated: true)
+    }
+    
+    //MARK: settingsButton fonksiyonu. Ayarlar ekranına gitmesini sağlayan buton.
+    func settingsButton(sender: UIButton!){
+        self.navigationController?.pushViewController(settingsScreenVC(), animated: true)
+    }
     func setupViews(){
         //MARK: Nesneler ekranan ekleniyor.
         view.addSubview(a21Label)
@@ -75,16 +103,26 @@ class mainScreenVC: UIViewController {
         view.addSubview(ayarlarButton)
         
         //MARK: Nesnelerin constraint değerleri belirleniyor.
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-20-[a21Label]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["a21Label" : a21Label]))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[baslatButton]-10-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["baslatButton" : baslatButton]))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[nasilButton]-10-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["nasilButton" : nasiloynanirButton]))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[ayarButton]-10-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["ayarButton" : ayarlarButton]))
+        let label21Top = NSLayoutConstraint(item: a21Label, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1.0, constant: 65.0)
+        let label21Center = NSLayoutConstraint(item: a21Label, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1.0, constant: 0.0)
         
-        //MARK: Nesnelerin birbirine olan constraint değerleri belirleniyor.
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[a21Label]-35-[baslatButton]", options: NSLayoutFormatOptions(), metrics: nil, views: ["a21Label" : a21Label, "baslatButton" : baslatButton]))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[baslatButton]-10-[nasilButton]", options: NSLayoutFormatOptions(), metrics: nil, views: ["baslatButton" : baslatButton, "nasilButton" : nasiloynanirButton]))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[nasilButton]-10-[ayarButton]", options: NSLayoutFormatOptions(), metrics: nil, views: ["nasilButton" : nasiloynanirButton, "ayarButton" : ayarlarButton]))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[topLayoutGuide]-60-[a21Label]", options: NSLayoutFormatOptions(), metrics: nil, views: ["topLayoutGuide" : topLayoutGuide, "a21Label" : a21Label]))
+        let baslatButtonTop = NSLayoutConstraint(item: baslatButton, attribute: .top, relatedBy: .equal, toItem: self.a21Label, attribute: .top, multiplier: 1.0, constant: 150)
+        let baslatButtonCenter = NSLayoutConstraint(item: baslatButton, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1.0, constant: 0.0)
+        let baslatButtonHeight = NSLayoutConstraint(item: baslatButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 75)
+        let baslatButtonWidth = NSLayoutConstraint(item: baslatButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 300)
+        
+        let nasilOynanirButtonTop = NSLayoutConstraint(item: nasiloynanirButton, attribute: .top, relatedBy: .equal, toItem: self.baslatButton, attribute: .top, multiplier: 1.0, constant: 85)
+        let nasilOynanirButtonCenter = NSLayoutConstraint(item: nasiloynanirButton, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1.0, constant: 0.0)
+        let nasilOynanirButtonHeight = NSLayoutConstraint(item: nasiloynanirButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 75)
+        let nasilOynanirButtonWidth = NSLayoutConstraint(item: nasiloynanirButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 300)
+        
+        let ayarlarButtonTop = NSLayoutConstraint(item: ayarlarButton, attribute: .top, relatedBy: .equal, toItem: self.nasiloynanirButton, attribute: .top, multiplier: 1.0, constant: 85)
+        let ayarlarButtonCenter = NSLayoutConstraint(item: ayarlarButton, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1.0, constant: 0.0)
+        let ayarlarButtonHeight = NSLayoutConstraint(item: ayarlarButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 75)
+        let ayarlarButtonWidth = NSLayoutConstraint(item: ayarlarButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 300)
+        
+        //MARK: Nesnelerin constraint değerleri ekrana ekleniyor.
+        NSLayoutConstraint.activate([label21Top,label21Center,baslatButtonTop,baslatButtonCenter,baslatButtonHeight,baslatButtonWidth,nasilOynanirButtonTop,nasilOynanirButtonCenter,nasilOynanirButtonHeight,nasilOynanirButtonWidth,ayarlarButtonTop,ayarlarButtonCenter,ayarlarButtonHeight,ayarlarButtonWidth])
     }
 }
 
