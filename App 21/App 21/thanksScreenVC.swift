@@ -14,10 +14,8 @@ class thanksScreenVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //arkaplan nesne belirlendi ve resim atandı.
-        let backgroundImage = #imageLiteral(resourceName: "background")
         //view nesnemiz için arka plan görseli olarak background nesnesi atandı.
-        self.view.backgroundColor = UIColor(patternImage: backgroundImage)
+        self.view.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 100)
         
         setupViews()
     }
@@ -27,7 +25,7 @@ class thanksScreenVC: UIViewController {
         let label = UILabel()
         label.numberOfLines = 1
         label.text = "Hoş Geldiniz"
-        label.textColor = UIColor.white
+        label.textColor = UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0)
         label.font = UIFont(name: "Avenir-Book", size: 24)
         label.frame = CGRect(x: 0, y: 0, width: 140, height: 33)
         label.textAlignment = .center
@@ -38,9 +36,9 @@ class thanksScreenVC: UIViewController {
     //MARK: thanksLabel nesnesi oluşturuldu.
     let thanksLabel: UILabel = {
         let label = UILabel()
-        label.numberOfLines = 2
-        label.text = "Satın aldığınız için teşekkürler. Keyifli bir zaman geçirmeniz dileğimizle."
-        label.textColor = UIColor.white
+        label.numberOfLines = 3
+        label.text = "Uygulamayı indirdiğiniz için teşekkürler. Keyifli bir zaman geçirmeniz dileğimizle."
+        label.textColor = UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0)
         label.font = UIFont(name: "Avenir-Book", size: 18)
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -51,7 +49,8 @@ class thanksScreenVC: UIViewController {
     let startButton: UIButton = {
         let button = UIButton()
         button.setImage(#imageLiteral(resourceName: "next_button_bg"), for: .normal)
-        //button.setTitle("Kullanmaya Başla", for: UIControlState)
+        button.setTitle("Kullanmaya Başla", for: .normal)
+        button.setTitleColor(UIColor.white, for: .normal)
         button.addTarget(self, action: #selector(nextAction), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -93,23 +92,23 @@ class thanksScreenVC: UIViewController {
         view.addSubview(startButton)
         
         //MARK: Nesnelerin constraint değerleri belirleniyor.
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat:"H:|-20-[welcomeLabel]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["welcomeLabel": welcomeLabel]))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-20-[logoImage]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["logoImage" : logoImage]))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-2-[thanksLabel]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["thanksLabel" : thanksLabel]))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-20-[startButton]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["startButton" : startButton]))
+        let welcomeLabelTop = NSLayoutConstraint(item: welcomeLabel, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1.0, constant: 50.0)
+        let welcomeLabelCenter = NSLayoutConstraint(item: welcomeLabel, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1.0, constant: 0.0)
         
-        //MARK: Nesnelerin birbirine olan constraint değerleri belirleniyor.
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[welcomeLabel]-120-[logoImage]", options: NSLayoutFormatOptions(), metrics: nil, views: ["welcomeLabel": welcomeLabel ,"logoImage" : logoImage]))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[logoImage]-105-[thanksLabel]", options: NSLayoutFormatOptions(), metrics: nil, views: ["logoImage" : logoImage, "thanksLabel" : thanksLabel]))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[thanksLabel]-95-[startButton]", options: NSLayoutFormatOptions(), metrics: nil, views: ["thanksLabel" : thanksLabel, "startButton" : startButton]))
+        let logoTop = NSLayoutConstraint(item: logoImage, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1.0, constant: 203.0)
+        let logoCenter = NSLayoutConstraint(item: logoImage, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1.0, constant: 0.0)
         
-        //let constw = NSLayoutConstraint(item: self.welcomeLabel, attribute: .width, relatedBy: .greaterThanOrEqual, toItem: nil, attribute: .width, multiplier: 1.0, constant: 250)
-        //let consth = NSLayoutConstraint(item: self.welcomeLabel, attribute: .height, relatedBy: .greaterThanOrEqual, toItem: nil, attribute: .height, multiplier: 1.0, constant: 0)
+        let thanksLabelTop = NSLayoutConstraint(item: thanksLabel, attribute: .top, relatedBy: .equal, toItem: self.logoImage, attribute: .top, multiplier: 1.0, constant: 200.0)
+        let thanksLabelLeading = NSLayoutConstraint(item: thanksLabel, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1.0, constant: 5.0)
+        let thanksLabelCenter = NSLayoutConstraint(item: thanksLabel, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1.0, constant: 0.0)
         
-        //let centerX = NSLayoutConstraint(item: welcomeLabel, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1.0, constant: 0)
-        //let centerY = NSLayoutConstraint(item: self.welcomeLabel, attribute: .centerY, relatedBy: .greaterThanOrEqual, toItem: nil, attribute: .centerX, multiplier: 1.0, constant: 0)
+        let startButtonTop = NSLayoutConstraint(item: startButton, attribute: .top, relatedBy: .equal, toItem: self.thanksLabel, attribute: .top, multiplier: 1.0, constant: 100.0)
+        let startButtonCenter = NSLayoutConstraint(item: startButton, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1.0, constant: 0.0)
+        //let startButtonLeading = NSLayoutConstraint(item: startButton, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1.0, constant: 100.0)
         
-        //self.view.addConstraints([centerX])
+        
+        //MARK: Nesnelerin constraint değerleri ekrana ekleniyor.
+        NSLayoutConstraint.activate([welcomeLabelTop,welcomeLabelCenter,logoTop,logoCenter,thanksLabelTop,thanksLabelLeading,thanksLabelCenter,startButtonTop,startButtonCenter])
     }
     
 }

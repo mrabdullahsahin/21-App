@@ -21,21 +21,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="wbB-OB-xys">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_logo" translatesAutoresizingMaskIntoConstraints="NO" id="YWw-GY-qEo">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_logo" translatesAutoresizingMaskIntoConstraints="NO" id="UNp-W6-n6z">
                                 <rect key="frame" x="81.666666666666686" y="264" width="251" height="208"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="wbB-OB-xys" secondAttribute="bottom" id="0du-fk-t4y"/>
-                            <constraint firstItem="wbB-OB-xys" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="Jhs-nb-mwZ"/>
-                            <constraint firstItem="YWw-GY-qEo" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Qdf-cg-RlE"/>
-                            <constraint firstItem="YWw-GY-qEo" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="cjF-1m-MXG"/>
-                            <constraint firstAttribute="trailing" secondItem="wbB-OB-xys" secondAttribute="trailing" id="hav-dc-jfa"/>
-                            <constraint firstItem="wbB-OB-xys" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="m0f-6O-OYt"/>
+                            <constraint firstItem="UNp-W6-n6z" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="CXU-Nt-Qv6"/>
+                            <constraint firstItem="UNp-W6-n6z" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="j0e-Rr-OTq"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -45,11 +38,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-507" y="324"/>
+            <point key="canvasLocation" x="-574" y="307"/>
         </scene>
     </scenes>
     <resources>
-        <image name="background" width="375" height="667"/>
         <image name="splash_logo" width="251" height="208"/>
     </resources>
 </document>
