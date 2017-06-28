@@ -17,6 +17,7 @@
 		B884F1D21EF7280F00A7C394 /* gamefinishedScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B884F1D11EF7280F00A7C394 /* gamefinishedScreenVC.swift */; };
 		B8DB06851F03CA6100F064F4 /* gameScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DB06841F03CA6100F064F4 /* gameScreenVC.swift */; };
 		B8DB06871F03CACB00F064F4 /* howToPlayScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DB06861F03CACB00F064F4 /* howToPlayScreenVC.swift */; };
+		B8DB06891F03E88500F064F4 /* feedbackScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DB06881F03E88500F064F4 /* feedbackScreenVC.swift */; };
 		B8FC463A1EF906A2007A9B28 /* gamestoppedScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FC46391EF906A2007A9B28 /* gamestoppedScreenVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		B884F1D11EF7280F00A7C394 /* gamefinishedScreenVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = gamefinishedScreenVC.swift; path = ../gamefinishedScreenVC.swift; sourceTree = "<group>"; };
 		B8DB06841F03CA6100F064F4 /* gameScreenVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gameScreenVC.swift; sourceTree = "<group>"; };
 		B8DB06861F03CACB00F064F4 /* howToPlayScreenVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = howToPlayScreenVC.swift; path = ../howToPlayScreenVC.swift; sourceTree = "<group>"; };
+		B8DB06881F03E88500F064F4 /* feedbackScreenVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = feedbackScreenVC.swift; path = ../feedbackScreenVC.swift; sourceTree = "<group>"; };
 		B8FC46391EF906A2007A9B28 /* gamestoppedScreenVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gamestoppedScreenVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,6 +75,7 @@
 				B884F1D11EF7280F00A7C394 /* gamefinishedScreenVC.swift */,
 				B8FC46391EF906A2007A9B28 /* gamestoppedScreenVC.swift */,
 				B8DB06861F03CACB00F064F4 /* howToPlayScreenVC.swift */,
+				B8DB06881F03E88500F064F4 /* feedbackScreenVC.swift */,
 				B807DFA41EF94A9B00829835 /* settingsScreenVC.swift */,
 				B884F1BE1EF3B1F700A7C394 /* Assets.xcassets */,
 				B884F1C01EF3B1F700A7C394 /* LaunchScreen.storyboard */,
@@ -158,6 +161,7 @@
 				B884F1CC1EF6BB6700A7C394 /* thanksScreenVC.swift in Sources */,
 				B8DB06871F03CACB00F064F4 /* howToPlayScreenVC.swift in Sources */,
 				B8FC463A1EF906A2007A9B28 /* gamestoppedScreenVC.swift in Sources */,
+				B8DB06891F03E88500F064F4 /* feedbackScreenVC.swift in Sources */,
 				B884F1B51EF3B1F700A7C394 /* AppDelegate.swift in Sources */,
 				B807DFA51EF94A9B00829835 /* settingsScreenVC.swift in Sources */,
 				B884F1CE1EF6BC0D00A7C394 /* mainScreenVC.swift in Sources */,
