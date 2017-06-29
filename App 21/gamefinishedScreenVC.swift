@@ -44,7 +44,7 @@ class gamefinishedScreenVC: UIViewController {
        let label = UILabel()
         label.text = winnerLabel
         label.numberOfLines = 1
-        label.textColor = UIColor.black
+        label.textColor = UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0)
         label.font = UIFont(name: "Avenir-Book", size: 36)
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -56,7 +56,7 @@ class gamefinishedScreenVC: UIViewController {
        let label = UILabel()
         label.text = winnerSentece[0]
         label.numberOfLines = 5
-        label.textColor = UIColor.black
+        label.textColor = UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0)
         label.font = UIFont(name: "Avenir-Book", size: 18)
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -67,6 +67,7 @@ class gamefinishedScreenVC: UIViewController {
     let mainButton: UIButton = {
        let button = UIButton()
         button.setImage(#imageLiteral(resourceName: "mainButton_bg"), for: .normal)
+        button.addTarget(self, action: #selector(goMainButton), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -75,9 +76,20 @@ class gamefinishedScreenVC: UIViewController {
     let againButton: UIButton = {
        let button = UIButton()
         button.setImage(#imageLiteral(resourceName: "againButton_bg"), for: .normal)
+        button.addTarget(self, action: #selector(goAgainButton), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    
+    //MARK: goMainButton fonksiyonu. Ana ekrana gidiyor.
+    func goMainButton(sender: UIButton!){
+        self.navigationController?.pushViewController(mainScreenVC(), animated: true)
+    }
+    
+    //MARK: goAgainButton fonksiyonu. Oyunun tekrar başlamasını sağlıyor.
+    func goAgainButton(sender: UIButton!){
+        self.navigationController?.pushViewController(gameScreenVC(), animated: true)
+    }
     
     //MARK: Nesneler ekrana ekleniyor ve constraint değerleri belirleniyor.
     func setupViews(){
@@ -88,15 +100,20 @@ class gamefinishedScreenVC: UIViewController {
         view.addSubview(againButton)
         
         //MARK: Nesnelerin constraint değerleri belirleniyor.
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[winLabel]-10-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["winLabel" : winLabel]))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[senteceLabel]-10-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["senteceLabel" : senteceLabel]))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[mainButton]-20-[bottomLayoutGuide]", options: NSLayoutFormatOptions(), metrics: nil, views: ["mainButton" : mainButton, "bottomLayoutGuide" : bottomLayoutGuide]))
-
-        //MARK: Nesnelerin birbiri ile olan constraint değerleri belirleniyor.
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[topLayoutGuide]-120-[winLabel]", options: NSLayoutFormatOptions(), metrics: nil, views: ["topLayoutGuide" : topLayoutGuide, "winLabel" : winLabel]))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[winLabel]-110-[senteceLabel]", options: NSLayoutFormatOptions(), metrics: nil, views: ["winLabel" : winLabel, "senteceLabel" : senteceLabel]))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[senteceLabel]-200-[mainButton]", options: NSLayoutFormatOptions(), metrics: nil, views: ["senteceLabel" : senteceLabel, "mainButton" : mainButton]))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[senteceLabel]-200-[againButton]", options: NSLayoutFormatOptions(), metrics: nil, views: ["senteceLabel" : senteceLabel, "againButton" : againButton]))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-5-[mainButton]-200-[againButton]-5-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["mainButton" : mainButton, "againButton" : againButton]))
+        let winLabelTop = NSLayoutConstraint(item: winLabel, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1.0, constant: 100)
+        let winLabelCenter = NSLayoutConstraint(item: winLabel, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1.0, constant: 0.0)
+        
+        let sentenceLabelTop = NSLayoutConstraint(item: senteceLabel, attribute: .top, relatedBy: .equal, toItem: self.winLabel, attribute: .top, multiplier: 1.0, constant: 100)
+        let sentenceLabelCenter = NSLayoutConstraint(item: senteceLabel, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1.0, constant: 0.0)
+        let sentenceLabelLeading = NSLayoutConstraint(item: senteceLabel, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1.0, constant: 0.0)
+        
+        let mainButtonTop = NSLayoutConstraint(item: mainButton, attribute: .top, relatedBy: .equal, toItem: self.senteceLabel, attribute: .top, multiplier: 1.0, constant: 200)
+        let mainButtonLeading = NSLayoutConstraint(item: mainButton, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1.0, constant: 110)
+        
+        let againButtonTop = NSLayoutConstraint(item: againButton, attribute: .top, relatedBy: .equal, toItem: self.senteceLabel, attribute: .top, multiplier: 1.0, constant: 200)
+        let againButtonLeading = NSLayoutConstraint(item: againButton, attribute: .leading, relatedBy: .equal, toItem: self.mainButton, attribute: .leading, multiplier: 1.0, constant: 75)
+        
+        //MARK: Nesnelerin constraint değerleri ekrana ekleniyor.
+        NSLayoutConstraint.activate([winLabelTop,winLabelCenter,sentenceLabelTop,sentenceLabelCenter,sentenceLabelLeading,mainButtonTop,mainButtonLeading,againButtonLeading,againButtonTop])
     }
 }

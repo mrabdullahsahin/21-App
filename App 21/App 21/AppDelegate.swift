@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         //window nesnemizin rootViewController durumunu mainScreenVC olarak ayarladık.
-        window?.rootViewController = UINavigationController(rootViewController: gamestoppedScreenVC())
+        window?.rootViewController = UINavigationController(rootViewController: gamefinishedScreenVC())
         return true
     }
 
