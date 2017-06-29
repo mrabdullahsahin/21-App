@@ -9,7 +9,7 @@
 import UIKit
 
 //MARK: Fatih'in söyleyeceği cümleler.
-let saysSentece = ["Korktun Heralde.", "Seni bulacağım oğlum, seni bulacağım."]
+let saysSentece = ["Korktun Heralde", "Seni bulacağım kaçma, seni bulacağım"]
 
 class gamestoppedScreenVC: UIViewController {
 
@@ -39,7 +39,7 @@ class gamestoppedScreenVC: UIViewController {
         let label = UILabel()
         label.text = "21"
         label.numberOfLines = 1
-        label.textColor = UIColor.black
+        label.textColor = UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0)
         label.font = UIFont(name: "Avenir-Book", size: 100)
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -49,9 +49,9 @@ class gamestoppedScreenVC: UIViewController {
     //MARK: Says label nesnesi oluşturuldu.
     let saysLabel: UILabel = {
         let label = UILabel()
-        label.text = "Fatih diyor ki: '\(saysSentece[0])!'"
+        label.text = "Fatih diyor ki: \(saysSentece[1])!'"
         label.numberOfLines = 5
-        label.textColor = UIColor.black
+        label.textColor = UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0)
         label.textAlignment = .center
         label.font = UIFont(name: "Avenir-Book", size: 25)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -62,6 +62,7 @@ class gamestoppedScreenVC: UIViewController {
     let mainButton: UIButton = {
        let button = UIButton()
         button.setImage(#imageLiteral(resourceName: "mainButton_bg"), for: .normal)
+        button.addTarget(self, action: #selector(goMainButton), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -70,9 +71,20 @@ class gamestoppedScreenVC: UIViewController {
     let againButton: UIButton = {
         let button = UIButton()
         button.setImage(#imageLiteral(resourceName: "againButton_bg"), for: .normal)
+        button.addTarget(self, action: #selector(goAgainButton), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    
+    //MARK: goMainButton fonksiyonu. Ana ekrana gidiyor.
+    func goMainButton(sender: UIButton!){
+        self.navigationController?.pushViewController(mainScreenVC(), animated: true)
+    }
+    
+    //MARK: goAgainButton fonksiyonu. Oyunun tekrar başlamasını sağlıyor.
+    func goAgainButton(sender: UIButton!){
+        self.navigationController?.pushViewController(gameScreenVC(), animated: true)
+    }
     
     //MARK: Nesneler ekrana ekleniyor ve constraint değeri belirleniyor.
     func setupViews(){
@@ -83,15 +95,21 @@ class gamestoppedScreenVC: UIViewController {
         view.addSubview(againButton)
         
         //MARK: Nesnelerin constraint değerleri belirleniyor.
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-20-[numberLabel]-20-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["numberLabel" : number21Label]))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-20-[saysLabel]-20-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["saysLabel" : saysLabel]))
+        let numberLabelTop = NSLayoutConstraint(item: number21Label, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1.0, constant: 90)
+        let numberLabelCenter = NSLayoutConstraint(item: number21Label, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1.0, constant: 0.0)
         
-        //MARK: Nesnelerin birbirleri ile olan constraint değerler belirleniyor.
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[topGuide]-90-[numberLabel]", options: NSLayoutFormatOptions(), metrics: nil, views: ["topGuide" : topLayoutGuide, "numberLabel" :  number21Label]))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[numberLabel]-70-[saysLabel]", options: NSLayoutFormatOptions(), metrics: nil, views: ["numberLabel" : number21Label, "saysLabel" : saysLabel]))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[saysLabel]-100-[mainButton]", options: NSLayoutFormatOptions(), metrics: nil, views: ["saysLabel" : saysLabel, "mainButton" : mainButton]))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[saysLabel]-100-[againButton]", options: NSLayoutFormatOptions(), metrics: nil, views: ["saysLabel" : saysLabel, "againButton" : againButton]))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[mainButton]-50-[againButton]", options: NSLayoutFormatOptions(), metrics: nil, views: ["mainButton" : mainButton, "againButton" : againButton]))
+        let saysLabelTop = NSLayoutConstraint(item: saysLabel, attribute: .top, relatedBy: .equal, toItem: self.number21Label, attribute: .top, multiplier: 1.0, constant: 125)
+        let saysLabelCenter = NSLayoutConstraint(item: saysLabel, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1.0, constant: 0.0)
+        let saysLabelLeading = NSLayoutConstraint(item: saysLabel, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1.0, constant: 10)
+        
+        let mainButtonTop = NSLayoutConstraint(item: mainButton, attribute: .top, relatedBy: .equal, toItem: self.saysLabel, attribute: .top, multiplier: 1.0, constant: 200)
+        let mainButtonLeading = NSLayoutConstraint(item: mainButton, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1.0, constant: 110)
+        
+        let againButtonTop = NSLayoutConstraint(item: againButton, attribute: .top, relatedBy: .equal, toItem: self.saysLabel, attribute: .top, multiplier: 1.0, constant: 200)
+        let againButtonLeading = NSLayoutConstraint(item: againButton, attribute: .leading, relatedBy: .equal, toItem: self.mainButton, attribute: .leading, multiplier: 1.0, constant: 75)
+        
+        //MARK: Nesnelerin constraint değerleri ekrana ekleniyor.
+        NSLayoutConstraint.activate([numberLabelTop,numberLabelCenter,saysLabelTop,saysLabelCenter,saysLabelLeading,mainButtonTop,mainButtonLeading,againButtonTop,againButtonLeading])
     }
 }
 
