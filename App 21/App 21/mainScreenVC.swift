@@ -95,6 +95,8 @@ class mainScreenVC: UIViewController {
     func settingsButton(sender: UIButton!){
         self.navigationController?.pushViewController(settingsScreenVC(), animated: true)
     }
+    
+    //MARK: Nesneler ekrana ekleniyor ve constraint değeri belirleniyor.
     func setupViews(){
         //MARK: Nesneler ekranan ekleniyor.
         view.addSubview(a21Label)

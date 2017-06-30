@@ -86,7 +86,7 @@ class thanksScreenVC: UIViewController {
         self.navigationController?.pushViewController(mainScreenVC(), animated: true)
     }
     
-    //MARK: nesnelerin ekrandaki düzenleri belirleniyor.
+    //MARK: Nesneler ekrana ekleniyor ve constraint değeri belirleniyor.
     func setupViews(){
         //MARK: Nesneler ekrana ekleniyor.
         view.addSubview(welcomeLabel)
