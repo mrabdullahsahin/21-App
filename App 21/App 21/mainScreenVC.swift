@@ -84,6 +84,13 @@ class mainScreenVC: UIViewController {
     //MARK: startButton fonksiyonu. Oyunu başlatan buton.
     func startButton(sender: UIButton!){
         self.navigationController?.pushViewController(gameScreenVC(), animated: true)
+        kalanSayi = 20
+        sayiAdet = 0
+        siraNo = 0
+        secilecekSayilar = [1,2,3]
+        sayi1 = 1
+        sayi2 = 2
+        sayi3 = 3
     }
     
     //MARK: howToPlayButton fonksiyonu. Nasıl oyunur ekranına gitmesini sağlayan buton.

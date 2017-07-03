@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B807DFA51EF94A9B00829835 /* settingsScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B807DFA41EF94A9B00829835 /* settingsScreenVC.swift */; };
+		B87677001F0A37B6008465DC /* otherObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87676FF1F0A37B6008465DC /* otherObjects.swift */; };
 		B884F1B51EF3B1F700A7C394 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B884F1B41EF3B1F700A7C394 /* AppDelegate.swift */; };
 		B884F1BD1EF3B1F700A7C394 /* App_21.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B884F1BB1EF3B1F700A7C394 /* App_21.xcdatamodeld */; };
 		B884F1BF1EF3B1F700A7C394 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B884F1BE1EF3B1F700A7C394 /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		B807DFA41EF94A9B00829835 /* settingsScreenVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingsScreenVC.swift; sourceTree = "<group>"; };
+		B87676FF1F0A37B6008465DC /* otherObjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = otherObjects.swift; path = ../otherObjects.swift; sourceTree = "<group>"; };
 		B884F1B11EF3B1F700A7C394 /* App 21.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "App 21.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B884F1B41EF3B1F700A7C394 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B884F1BC1EF3B1F700A7C394 /* App_21.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = App_21.xcdatamodel; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 		B884F1B31EF3B1F700A7C394 /* App 21 */ = {
 			isa = PBXGroup;
 			children = (
+				B87676FF1F0A37B6008465DC /* otherObjects.swift */,
 				B884F1B41EF3B1F700A7C394 /* AppDelegate.swift */,
 				B884F1CB1EF6BB6700A7C394 /* thanksScreenVC.swift */,
 				B884F1CD1EF6BC0D00A7C394 /* mainScreenVC.swift */,
@@ -160,6 +163,7 @@
 				B884F1BD1EF3B1F700A7C394 /* App_21.xcdatamodeld in Sources */,
 				B884F1CC1EF6BB6700A7C394 /* thanksScreenVC.swift in Sources */,
 				B8DB06871F03CACB00F064F4 /* howToPlayScreenVC.swift in Sources */,
+				B87677001F0A37B6008465DC /* otherObjects.swift in Sources */,
 				B8FC463A1EF906A2007A9B28 /* gamestoppedScreenVC.swift in Sources */,
 				B8DB06891F03E88500F064F4 /* feedbackScreenVC.swift in Sources */,
 				B884F1B51EF3B1F700A7C394 /* AppDelegate.swift in Sources */,

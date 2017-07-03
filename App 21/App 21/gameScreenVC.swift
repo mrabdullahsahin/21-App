@@ -8,7 +8,6 @@
 
 import UIKit
 
-public var sayi1 : Int = 1, sayi2 : Int = 2, sayi3 : Int = 3, siraNo : Int = 0
 public var secili1 : Bool = false, secili2 : Bool = false, secili3 : Bool = false
 
 
@@ -22,6 +21,8 @@ class gameScreenVC: UIViewController {
         super.viewDidLoad()
         
         setupViews()
+        
+        fatihLabel.isHidden = true
     }
     
     //MARK: navigationBar gizlendi.
@@ -358,9 +359,10 @@ class gameScreenVC: UIViewController {
         button.layer.borderColor = UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0).cgColor
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 30
-        button.setTitle("0", for: UIControlState.normal)
+        button.setTitle("\(secilecekSayilar[0])", for: UIControlState.normal)
         button.setTitleColor(UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0), for: UIControlState.normal)
         button.titleLabel?.font = UIFont(name: "Avenir-Book", size: 25)
+        button.addTarget(self, action: #selector(goSecilecek1Button), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -371,9 +373,10 @@ class gameScreenVC: UIViewController {
         button.layer.borderColor = UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0).cgColor
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 30
-        button.setTitle("1", for: UIControlState.normal)
+        button.setTitle("\(secilecekSayilar[1])", for: UIControlState.normal)
         button.setTitleColor(UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0), for: UIControlState.normal)
         button.titleLabel?.font = UIFont(name: "Avenir-Book", size: 25)
+        button.addTarget(self, action: #selector(goSecilecek2Button), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -384,9 +387,10 @@ class gameScreenVC: UIViewController {
         button.layer.borderColor = UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0).cgColor
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 30
-        button.setTitle("2", for: UIControlState.normal)
+        button.setTitle("\(secilecekSayilar[2])", for: UIControlState.normal)
         button.setTitleColor(UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0), for: UIControlState.normal)
         button.titleLabel?.font = UIFont(name: "Avenir-Book", size: 25)
+        button.addTarget(self, action: #selector(goSecilecek3Button), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -459,20 +463,562 @@ class gameScreenVC: UIViewController {
     //MARK: goMainButton fonksiyonu. Ana ekrana gidiyor.
     func goMainButton(sender: UIButton!){
         self.navigationController?.pushViewController(mainScreenVC(), animated: true)
+        kalanSayi = 20
+        sayiAdet = 0
+        siraNo = 0
+        secilecekSayilar = [1,2,3]
+        sayi1 = 1
+        sayi2 = 2
+        sayi3 = 3
     }
     
     //MARK: goOynaButton fonksiyonu. Kullanıcının hamle yapabilmesini sağlıyor.
     func goOynaButton(sender: UIButton!){
+        kalanSayi = kalanSayi - sayiAdet
+        butonRenklendir()
+        secilecekVeSecilenSayilarDurumu()
+        siraNo = 1
         
+        if siraNo == 1{
+            fatihOynuyor()
+        }
     }
     
     //MARK: goPasGecButton fonksiyonu. Kullanıcının pas geçebilmesini sağlıyor.
     func goPasGecButton(sender: UIButton!){
-        
+        sayiAdet = 0
+        kalanSayi = kalanSayi - sayiAdet
+        siraDurumu()
+        fatihOynuyor()
     }
     
-    func baslangic(){
+    //Sıranın hangi kullanıcıda olduğunu belirleyen fonksiyon.
+    func siraDurumu(){
+        if siraNo == 0{
+            siraNo = 1
+        }
+    }
+    
+    //Secilecek sayıların artırılıp azaltıldığı fonksiyon.
+    func secilecekVeSecilenSayilarDurumu(){
+        if sayiAdet == 3{
+            secilecekSayilar[0] = secilecekSayilar[0] + 3
+            secilecekSayilar[1] = secilecekSayilar[1] + 3
+            secilecekSayilar[2] = secilecekSayilar[2] + 3
+            
+            sayi1 = sayi1 + 3
+            sayi2 = sayi2 + 3
+            sayi3 = sayi3 + 3
+        }
         
+        if sayiAdet == 2{
+            secilecekSayilar[0] = secilecekSayilar[0] + 2
+            secilecekSayilar[1] = secilecekSayilar[1] + 2
+            secilecekSayilar[2] = secilecekSayilar[2] + 2
+            
+            sayi1 = sayi1 + 2
+            sayi2 = sayi2 + 2
+            sayi3 = sayi3 + 2
+        }
+        
+        if sayiAdet == 1{
+            secilecekSayilar[0] = secilecekSayilar[0] + 1
+            secilecekSayilar[1] = secilecekSayilar[1] + 1
+            secilecekSayilar[2] = secilecekSayilar[2] + 1
+            
+            sayi1 = sayi1 + 1
+            sayi2 = sayi2 + 1
+            sayi3 = sayi3 + 1
+        }
+        
+        if sayiAdet == 0{
+            secilecekSayilar[0] = secilecekSayilar[0] + 0
+            secilecekSayilar[1] = secilecekSayilar[1] + 0
+            secilecekSayilar[2] = secilecekSayilar[2] + 0
+            
+            sayi1 = sayi1 + 0
+            sayi2 = sayi2 + 0
+            sayi3 = sayi3 + 0
+        }
+        
+        secilecekSayilarTitle()
+    }
+    
+    //goSecilecek1Button fonksiyonu oluşturuldu.
+    func goSecilecek1Button(sender: UIButton!){
+        if secili1 == false{
+            secilecek1Button.backgroundColor = UIColor.black
+            secilecek1Button.layer.borderColor = UIColor.black.cgColor
+            secilecek1Button.setTitleColor(UIColor.white, for: UIControlState.normal)
+            sayiAdet = sayiAdet + 1
+            secili1 = true
+            if secili1 == true{
+                secilecek2Button.isEnabled = true
+                secilecek3Button.isEnabled = true
+            }
+        }else{
+            secilecek1Button.backgroundColor = UIColor.white
+            secilecek1Button.layer.borderColor = UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0).cgColor
+            secilecek1Button.setTitleColor(UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0), for: UIControlState.normal)
+            secili1 = false
+            if secili1 == false{
+                seciliDurum()
+            }
+        }
+    }
+    
+    //Secilecek sayıların title ayarları düzenleniyor.
+    func secilecekSayilarTitle(){
+        secilecek1Button.setTitle("\(secilecekSayilar[0])", for: .normal)
+        secilecek2Button.setTitle("\(secilecekSayilar[1])", for: .normal)
+        secilecek3Button.setTitle("\(secilecekSayilar[2])", for: .normal)
+    }
+    
+    //goSecilecek1Button fonksiyonu oluşturuldu.
+    func goSecilecek2Button(sender: UIButton!){
+        if secili2 == false && secili1 == true{
+            secilecek2Button.backgroundColor = UIColor.black
+            secilecek2Button.layer.borderColor = UIColor.black.cgColor
+            secilecek2Button.setTitleColor(UIColor.white, for: UIControlState.normal)
+            sayiAdet = sayiAdet + 1
+            secili2 = true
+        }else{
+            secilecek2Button.backgroundColor = UIColor.white
+            secilecek2Button.layer.borderColor = UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0).cgColor
+            secilecek2Button.setTitleColor(UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0), for: UIControlState.normal)
+            sayiAdet = sayiAdet - 1
+            secili2 = false
+        }
+    }
+    
+    //goSecilecek1Button fonksiyonu oluşturuldu.
+    func goSecilecek3Button(sender: UIButton!){
+        if secili3 == false && secili2 == true && secili1 == true{
+            secilecek3Button.backgroundColor = UIColor.black
+            secilecek3Button.layer.borderColor = UIColor.black.cgColor
+            secilecek3Button.setTitleColor(UIColor.white, for: UIControlState.normal)
+            sayiAdet = sayiAdet + 1
+            secili3 = true
+        }else{
+            secilecek3Button.backgroundColor = UIColor.white
+            secilecek3Button.layer.borderColor = UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0).cgColor
+            secilecek3Button.setTitleColor(UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0), for: UIControlState.normal)
+            sayiAdet = sayiAdet + 1
+            secili3 = false
+        }
+    }
+    
+    //Butonların secili durumları kontrol ediliyor.
+    func seciliDurum(){
+        if secili1 == false{
+            secili2 = false
+            secili3 = false
+            
+            secilecek2Button.backgroundColor = UIColor.white
+            secilecek2Button.layer.borderColor = UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0).cgColor
+            secilecek2Button.setTitleColor(UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0), for: UIControlState.normal)
+            
+            secilecek3Button.backgroundColor = UIColor.white
+            secilecek3Button.layer.borderColor = UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0).cgColor
+            secilecek3Button.setTitleColor(UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0), for: UIControlState.normal)
+            
+            secilecek2Button.isEnabled = false
+            secilecek3Button.isEnabled = false
+            
+            if secili1 == false && sayiAdet == 3 {
+                sayiAdet = sayiAdet - 3
+            }
+            if secili1 == false && sayiAdet == 2 {
+                sayiAdet = sayiAdet - 2
+            }
+            if secili1 == false && sayiAdet == 1{
+                sayiAdet = sayiAdet - 1
+            }
+        }
+    }
+    
+    //Butonların secili olup olmama durumlarının sıfırlandığı fonksiyon.
+    func seciliButonlariSifirlar(){
+            secili1 = false
+            secili2 = false
+            secili3 = false
+            
+            secilecek2Button.backgroundColor = UIColor.white
+            secilecek2Button.layer.borderColor = UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0).cgColor
+            secilecek2Button.setTitleColor(UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0), for: UIControlState.normal)
+            
+            secilecek3Button.backgroundColor = UIColor.white
+            secilecek3Button.layer.borderColor = UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0).cgColor
+            secilecek3Button.setTitleColor(UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0), for: UIControlState.normal)
+        
+            secilecek1Button.backgroundColor = UIColor.white
+            secilecek1Button.layer.borderColor = UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0).cgColor
+            secilecek1Button.setTitleColor(UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0), for: UIControlState.normal)
+    }
+    
+    //Bu fonksiyon oynayan oyuncunun durumuna göre yukarıda bulunan pasif butonları renklendiriyor.
+    func butonRenklendir(){
+        if siraNo == 0{
+            if secili1 == true{
+                if sayi1 == 1{
+                    number1.backgroundColor = UIColor.black
+                    number1.layer.borderColor = UIColor.black.cgColor
+                    number1.setTitleColor(UIColor.white, for: UIControlState.normal)
+                }
+                if sayi1 == 4{
+                    number4.backgroundColor = UIColor.black
+                    number4.layer.borderColor = UIColor.black.cgColor
+                    number4.setTitleColor(UIColor.white, for: UIControlState.normal)
+                }
+                if sayi1 == 7{
+                    number7.backgroundColor = UIColor.black
+                    number7.layer.borderColor = UIColor.black.cgColor
+                    number7.setTitleColor(UIColor.white, for: UIControlState.normal)
+                }
+                if sayi1 == 10{
+                    number10.backgroundColor = UIColor.black
+                    number10.layer.borderColor = UIColor.black.cgColor
+                    number10.setTitleColor(UIColor.white, for: UIControlState.normal)
+                }
+                if sayi1 == 13{
+                    number13.backgroundColor = UIColor.black
+                    number13.layer.borderColor = UIColor.black.cgColor
+                    number13.setTitleColor(UIColor.white, for: UIControlState.normal)
+                }
+                if sayi1 == 16{
+                    number16.backgroundColor = UIColor.black
+                    number16.layer.borderColor = UIColor.black.cgColor
+                    number16.setTitleColor(UIColor.white, for: UIControlState.normal)
+                }
+                if sayi1 == 19{
+                    number19.backgroundColor = UIColor.black
+                    number19.layer.borderColor = UIColor.black.cgColor
+                    number19.setTitleColor(UIColor.white, for: UIControlState.normal)
+                }
+            }
+            
+            if secili2 == true{
+                if sayi2 == 2{
+                    number2.backgroundColor = UIColor.black
+                    number2.layer.borderColor = UIColor.black.cgColor
+                    number2.setTitleColor(UIColor.white, for: UIControlState.normal)
+                }
+                if sayi2 == 5{
+                    number5.backgroundColor = UIColor.black
+                    number5.layer.borderColor = UIColor.black.cgColor
+                    number5.setTitleColor(UIColor.white, for: UIControlState.normal)
+                }
+                if sayi2 == 8{
+                    number8.backgroundColor = UIColor.black
+                    number8.layer.borderColor = UIColor.black.cgColor
+                    number8.setTitleColor(UIColor.white, for: UIControlState.normal)
+                }
+                if sayi2 == 11{
+                    number11.backgroundColor = UIColor.black
+                    number11.layer.borderColor = UIColor.black.cgColor
+                    number11.setTitleColor(UIColor.white, for: UIControlState.normal)
+                }
+                if sayi2 == 14{
+                    number14.backgroundColor = UIColor.black
+                    number14.layer.borderColor = UIColor.black.cgColor
+                    number14.setTitleColor(UIColor.white, for: UIControlState.normal)
+                }
+                if sayi2 == 17{
+                    number17.backgroundColor = UIColor.black
+                    number17.layer.borderColor = UIColor.black.cgColor
+                    number17.setTitleColor(UIColor.white, for: UIControlState.normal)
+                }
+                if sayi2 == 20{
+                    number20.backgroundColor = UIColor.black
+                    number20.layer.borderColor = UIColor.black.cgColor
+                    number20.setTitleColor(UIColor.white, for: UIControlState.normal)
+                }
+            }
+            
+            if secili3 == true{
+                if sayi3 == 3{
+                    number3.backgroundColor = UIColor.black
+                    number3.layer.borderColor = UIColor.black.cgColor
+                    number3.setTitleColor(UIColor.white, for: UIControlState.normal)
+                }
+                if sayi3 == 6{
+                    number6.backgroundColor = UIColor.black
+                    number6.layer.borderColor = UIColor.black.cgColor
+                    number6.setTitleColor(UIColor.white, for: UIControlState.normal)
+                }
+                if sayi3 == 9{
+                    number9.backgroundColor = UIColor.black
+                    number9.layer.borderColor = UIColor.black.cgColor
+                    number9.setTitleColor(UIColor.white, for: UIControlState.normal)
+                }
+                if sayi3 == 12{
+                    number12.backgroundColor = UIColor.black
+                    number12.layer.borderColor = UIColor.black.cgColor
+                    number12.setTitleColor(UIColor.white, for: UIControlState.normal)
+                }
+                if sayi3 == 15{
+                    number15.backgroundColor = UIColor.black
+                    number15.layer.borderColor = UIColor.black.cgColor
+                    number15.setTitleColor(UIColor.white, for: UIControlState.normal)
+                }
+                if sayi3 == 18{
+                    number18.backgroundColor = UIColor.black
+                    number18.layer.borderColor = UIColor.black.cgColor
+                    number18.setTitleColor(UIColor.white, for: UIControlState.normal)
+                }
+                if sayi3 == 21{
+                    number21.backgroundColor = UIColor.black
+                    number21.layer.borderColor = UIColor.black.cgColor
+                    number21.setTitleColor(UIColor.white, for: UIControlState.normal)
+                }
+            }
+        }
+        
+        if siraNo == 1{
+            if secili1 == true{
+                if sayi1 == 1{
+                    number1.backgroundColor = UIColor.white
+                    number1.layer.borderColor = UIColor.white.cgColor
+                    number1.setTitleColor(UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0), for: UIControlState.normal)
+                }
+                if sayi1 == 4{
+                    number4.backgroundColor = UIColor.white
+                    number4.layer.borderColor = UIColor.white.cgColor
+                    number4.setTitleColor(UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0), for: UIControlState.normal)
+                }
+                if sayi1 == 7{
+                    number7.backgroundColor = UIColor.white
+                    number7.layer.borderColor = UIColor.white.cgColor
+                    number7.setTitleColor(UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0), for: UIControlState.normal)
+                }
+                if sayi1 == 10{
+                    number10.backgroundColor = UIColor.white
+                    number10.layer.borderColor = UIColor.white.cgColor
+                    number10.setTitleColor(UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0), for: UIControlState.normal)
+                }
+                if sayi1 == 13{
+                    number13.backgroundColor = UIColor.white
+                    number13.layer.borderColor = UIColor.white.cgColor
+                    number13.setTitleColor(UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0), for: UIControlState.normal)
+                }
+                if sayi1 == 16{
+                    number16.backgroundColor = UIColor.white
+                    number16.layer.borderColor = UIColor.white.cgColor
+                    number16.setTitleColor(UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0), for: UIControlState.normal)
+                }
+                if sayi1 == 19{
+                    number19.backgroundColor = UIColor.white
+                    number19.layer.borderColor = UIColor.white.cgColor
+                    number19.setTitleColor(UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0), for: UIControlState.normal)
+                }
+            }
+            
+            if secili2 == true{
+                if sayi2 == 2{
+                    number2.backgroundColor = UIColor.white
+                    number2.layer.borderColor = UIColor.white.cgColor
+                    number2.setTitleColor(UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0), for: UIControlState.normal)
+                }
+                if sayi2 == 5{
+                    number5.backgroundColor = UIColor.white
+                    number5.layer.borderColor = UIColor.white.cgColor
+                    number5.setTitleColor(UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0), for: UIControlState.normal)
+                }
+                if sayi2 == 8{
+                    number8.backgroundColor = UIColor.white
+                    number8.layer.borderColor = UIColor.white.cgColor
+                    number8.setTitleColor(UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0), for: UIControlState.normal)
+                }
+                if sayi2 == 11{
+                    number11.backgroundColor = UIColor.white
+                    number11.layer.borderColor = UIColor.white.cgColor
+                    number11.setTitleColor(UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0), for: UIControlState.normal)
+                }
+                if sayi2 == 14{
+                    number14.backgroundColor = UIColor.white
+                    number14.layer.borderColor = UIColor.white.cgColor
+                    number14.setTitleColor(UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0), for: UIControlState.normal)
+                }
+                if sayi2 == 17{
+                    number17.backgroundColor = UIColor.white
+                    number17.layer.borderColor = UIColor.white.cgColor
+                    number17.setTitleColor(UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0), for: UIControlState.normal)
+                }
+                if sayi2 == 20{
+                    number20.backgroundColor = UIColor.white
+                    number20.layer.borderColor = UIColor.white.cgColor
+                    number20.setTitleColor(UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0), for: UIControlState.normal)
+                }
+            }
+            
+            if secili3 == true{
+                if sayi3 == 3{
+                    number3.backgroundColor = UIColor.white
+                    number3.layer.borderColor = UIColor.white.cgColor
+                    number3.setTitleColor(UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0), for: UIControlState.normal)
+                }
+                if sayi3 == 6{
+                    number6.backgroundColor = UIColor.white
+                    number6.layer.borderColor = UIColor.white.cgColor
+                    number6.setTitleColor(UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0), for: UIControlState.normal)
+                }
+                if sayi3 == 9{
+                    number9.backgroundColor = UIColor.white
+                    number9.layer.borderColor = UIColor.white.cgColor
+                    number9.setTitleColor(UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0), for: UIControlState.normal)
+                }
+                if sayi3 == 12{
+                    number12.backgroundColor = UIColor.white
+                    number12.layer.borderColor = UIColor.white.cgColor
+                    number12.setTitleColor(UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0), for: UIControlState.normal)
+                }
+                if sayi3 == 15{
+                    number15.backgroundColor = UIColor.white
+                    number15.layer.borderColor = UIColor.white.cgColor
+                    number15.setTitleColor(UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0), for: UIControlState.normal)
+                }
+                if sayi3 == 18{
+                    number18.backgroundColor = UIColor.white
+                    number18.layer.borderColor = UIColor.white.cgColor
+                    number18.setTitleColor(UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0), for: UIControlState.normal)
+                }
+                if sayi3 == 21{
+                    number21.backgroundColor = UIColor.white
+                    number21.layer.borderColor = UIColor.white.cgColor
+                    number21.setTitleColor(UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0), for: UIControlState.normal)
+                }
+            }
+        }
+    }
+    
+    //Fatih oynuyor fonksiyonu. Fatih'in nasıl oynaması gerektiğini gösteren fonksiyon.
+    func fatihOynuyor(){
+        if kalanSayi == 10 || kalanSayi == 9 || kalanSayi == 8 || kalanSayi == 7 || kalanSayi > 10{
+            let rastgele = arc4random_uniform(UInt32(4)) + 1
+            
+            if rastgele == 1{
+                secili1 = true
+                kalanSayi = kalanSayi - 1
+                sayiAdet = 1
+                butonRenklendir()
+                secilecekVeSecilenSayilarDurumu()
+            }
+            if rastgele == 2{
+                secili1 = true
+                secili2 = true
+                kalanSayi = kalanSayi - 2
+                sayiAdet = 2
+                butonRenklendir()
+                secilecekVeSecilenSayilarDurumu()
+            }
+            if rastgele == 3{
+                secili1 = true
+                secili2 = true
+                secili3 = true
+                kalanSayi = kalanSayi - 3
+                sayiAdet = 3
+                butonRenklendir()
+                secilecekVeSecilenSayilarDurumu()
+            }
+            if rastgele == 4{
+                secili1 = false
+                secili2 = false
+                secili3 = false
+                sayiAdet = 0
+                butonRenklendir()
+                secilecekVeSecilenSayilarDurumu()
+            }
+        }
+        
+        if kalanSayi == 6{
+            let rastgele = arc4random_uniform(UInt32(3)) + 1
+            
+            if rastgele == 1{
+                secili1 = true
+                sayiAdet = 1
+                kalanSayi = kalanSayi - 1
+                butonRenklendir()
+                secilecekVeSecilenSayilarDurumu()
+            }
+            if rastgele == 2{
+                secili1 = true
+                secili2 = true
+                sayiAdet = 2
+                kalanSayi = kalanSayi - 2
+                butonRenklendir()
+                secilecekVeSecilenSayilarDurumu()
+            }
+            if rastgele == 3{
+                secili1 = false
+                secili2 = false
+                secili3 = false
+                sayiAdet = 0
+                butonRenklendir()
+                secilecekVeSecilenSayilarDurumu()
+            }
+        }
+        
+        if kalanSayi == 5{
+            let rastgele = arc4random_uniform(UInt32(2)) + 1
+            
+            if rastgele == 1{
+                secili1 = true
+                sayiAdet = 1
+                kalanSayi = kalanSayi - 1
+                butonRenklendir()
+                secilecekVeSecilenSayilarDurumu()
+            }
+            if rastgele == 2{
+                secili1 = false
+                secili2 = false
+                secili3 = false
+                sayiAdet = 0
+                secilecekVeSecilenSayilarDurumu()
+            }
+        }
+        
+        if kalanSayi == 4{
+            if sayiAdet == 0{
+                secili1 = false
+                secili2 = false
+                secili3 = false
+                sayiAdet = 0
+                butonRenklendir()
+                secilecekVeSecilenSayilarDurumu()
+            }
+        }
+        
+        if kalanSayi == 3{
+            secili1 = true
+            secili2 = true
+            secili3 = true
+            sayiAdet = 3
+            butonRenklendir()
+            secilecekVeSecilenSayilarDurumu()
+        }
+        
+        if kalanSayi == 2{
+            secili1 = true
+            secili2 = true
+            sayiAdet = 2
+            butonRenklendir()
+            secilecekVeSecilenSayilarDurumu()
+        }
+        
+        if kalanSayi == 1{
+            secili1 = true
+            butonRenklendir()
+            secilecekVeSecilenSayilarDurumu()
+        }
+        
+        siraNo = 0
+        seciliButonlariSifirlar()
+        oynaButton.isHidden = false
+        pasGecButton.isHidden = false
+        secilecek1Button.isHidden = false
+        secilecek2Button.isHidden = false
+        secilecek3Button.isHidden = false
+        fatihLabel.isHidden = true
     }
     
     //MARK: startButton fonksiyonu. Oyunu başlatan buton.
@@ -480,6 +1026,7 @@ class gameScreenVC: UIViewController {
         self.navigationController?.pushViewController(gameScreenVC(), animated: true)
     }
     
+    //MARK: Nesneler ekrana ekleniyor ve constraint değerleri belirleniyor.
     func setupViews(){
         //MARK: Nesneler ekranan ekleniyor.
         view.addSubview(sureLabel)

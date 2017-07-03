@@ -70,7 +70,7 @@ class gamestoppedScreenVC: UIViewController {
     //MARK: againButton nesnesi oluşturuldu.
     let againButton: UIButton = {
         let button = UIButton()
-        button.setImage(#imageLiteral(resourceName: "againButton_bg"), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "oyuna_devam_et"), for: .normal)
         button.addTarget(self, action: #selector(goAgainButton), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
