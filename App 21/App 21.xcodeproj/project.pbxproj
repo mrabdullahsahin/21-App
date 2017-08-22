@@ -15,14 +15,15 @@
 		B884F1C21EF3B1F700A7C394 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B884F1C01EF3B1F700A7C394 /* LaunchScreen.storyboard */; };
 		B884F1CC1EF6BB6700A7C394 /* thanksScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B884F1CB1EF6BB6700A7C394 /* thanksScreenVC.swift */; };
 		B884F1CE1EF6BC0D00A7C394 /* mainScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B884F1CD1EF6BC0D00A7C394 /* mainScreenVC.swift */; };
-		B884F1D21EF7280F00A7C394 /* gamefinishedScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B884F1D11EF7280F00A7C394 /* gamefinishedScreenVC.swift */; };
 		B8DB06851F03CA6100F064F4 /* gameScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DB06841F03CA6100F064F4 /* gameScreenVC.swift */; };
 		B8DB06871F03CACB00F064F4 /* howToPlayScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DB06861F03CACB00F064F4 /* howToPlayScreenVC.swift */; };
 		B8DB06891F03E88500F064F4 /* feedbackScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DB06881F03E88500F064F4 /* feedbackScreenVC.swift */; };
-		B8FC463A1EF906A2007A9B28 /* gamestoppedScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FC46391EF906A2007A9B28 /* gamestoppedScreenVC.swift */; };
+		CF7BABAD6661D84E6F7022D1 /* Pods_App_21.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8C77224A4D67EF8EC17976 /* Pods_App_21.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E8C77224A4D67EF8EC17976 /* Pods_App_21.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_App_21.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		932E46602EB8A4CC237A49A5 /* Pods-App 21.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App 21.debug.xcconfig"; path = "Pods/Target Support Files/Pods-App 21/Pods-App 21.debug.xcconfig"; sourceTree = "<group>"; };
 		B807DFA41EF94A9B00829835 /* settingsScreenVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingsScreenVC.swift; sourceTree = "<group>"; };
 		B87676FF1F0A37B6008465DC /* otherObjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = otherObjects.swift; path = ../otherObjects.swift; sourceTree = "<group>"; };
 		B884F1B11EF3B1F700A7C394 /* App 21.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "App 21.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -33,11 +34,10 @@
 		B884F1C31EF3B1F700A7C394 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B884F1CB1EF6BB6700A7C394 /* thanksScreenVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = thanksScreenVC.swift; sourceTree = "<group>"; };
 		B884F1CD1EF6BC0D00A7C394 /* mainScreenVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mainScreenVC.swift; sourceTree = "<group>"; };
-		B884F1D11EF7280F00A7C394 /* gamefinishedScreenVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = gamefinishedScreenVC.swift; path = ../gamefinishedScreenVC.swift; sourceTree = "<group>"; };
 		B8DB06841F03CA6100F064F4 /* gameScreenVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gameScreenVC.swift; sourceTree = "<group>"; };
 		B8DB06861F03CACB00F064F4 /* howToPlayScreenVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = howToPlayScreenVC.swift; path = ../howToPlayScreenVC.swift; sourceTree = "<group>"; };
 		B8DB06881F03E88500F064F4 /* feedbackScreenVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = feedbackScreenVC.swift; path = ../feedbackScreenVC.swift; sourceTree = "<group>"; };
-		B8FC46391EF906A2007A9B28 /* gamestoppedScreenVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gamestoppedScreenVC.swift; sourceTree = "<group>"; };
+		F991671C17785461E24F2D65 /* Pods-App 21.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App 21.release.xcconfig"; path = "Pods/Target Support Files/Pods-App 21/Pods-App 21.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,17 +45,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF7BABAD6661D84E6F7022D1 /* Pods_App_21.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		06114CDA10BD2BA9671D92ED /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2E8C77224A4D67EF8EC17976 /* Pods_App_21.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		86B4BB060F1281901DB9CBA9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				932E46602EB8A4CC237A49A5 /* Pods-App 21.debug.xcconfig */,
+				F991671C17785461E24F2D65 /* Pods-App 21.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		B884F1A81EF3B1F700A7C394 = {
 			isa = PBXGroup;
 			children = (
 				B884F1B31EF3B1F700A7C394 /* App 21 */,
 				B884F1B21EF3B1F700A7C394 /* Products */,
+				86B4BB060F1281901DB9CBA9 /* Pods */,
+				06114CDA10BD2BA9671D92ED /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -75,8 +95,6 @@
 				B884F1CB1EF6BB6700A7C394 /* thanksScreenVC.swift */,
 				B884F1CD1EF6BC0D00A7C394 /* mainScreenVC.swift */,
 				B8DB06841F03CA6100F064F4 /* gameScreenVC.swift */,
-				B884F1D11EF7280F00A7C394 /* gamefinishedScreenVC.swift */,
-				B8FC46391EF906A2007A9B28 /* gamestoppedScreenVC.swift */,
 				B8DB06861F03CACB00F064F4 /* howToPlayScreenVC.swift */,
 				B8DB06881F03E88500F064F4 /* feedbackScreenVC.swift */,
 				B807DFA41EF94A9B00829835 /* settingsScreenVC.swift */,
@@ -95,9 +113,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B884F1C61EF3B1F700A7C394 /* Build configuration list for PBXNativeTarget "App 21" */;
 			buildPhases = (
+				61F1A0F8B3A252A8DB57EDA5 /* [CP] Check Pods Manifest.lock */,
 				B884F1AD1EF3B1F700A7C394 /* Sources */,
 				B884F1AE1EF3B1F700A7C394 /* Frameworks */,
 				B884F1AF1EF3B1F700A7C394 /* Resources */,
+				67AB00EC55604318235B9119 /* [CP] Embed Pods Frameworks */,
+				3365B52DB455F38133A0797C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -154,6 +175,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3365B52DB455F38133A0797C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-App 21/Pods-App 21-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		61F1A0F8B3A252A8DB57EDA5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		67AB00EC55604318235B9119 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-App 21/Pods-App 21-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B884F1AD1EF3B1F700A7C394 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -164,12 +233,10 @@
 				B884F1CC1EF6BB6700A7C394 /* thanksScreenVC.swift in Sources */,
 				B8DB06871F03CACB00F064F4 /* howToPlayScreenVC.swift in Sources */,
 				B87677001F0A37B6008465DC /* otherObjects.swift in Sources */,
-				B8FC463A1EF906A2007A9B28 /* gamestoppedScreenVC.swift in Sources */,
 				B8DB06891F03E88500F064F4 /* feedbackScreenVC.swift in Sources */,
 				B884F1B51EF3B1F700A7C394 /* AppDelegate.swift in Sources */,
 				B807DFA51EF94A9B00829835 /* settingsScreenVC.swift in Sources */,
 				B884F1CE1EF6BC0D00A7C394 /* mainScreenVC.swift in Sources */,
-				B884F1D21EF7280F00A7C394 /* gamefinishedScreenVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +349,7 @@
 		};
 		B884F1C71EF3B1F700A7C394 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 932E46602EB8A4CC237A49A5 /* Pods-App 21.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "App 21/Info.plist";
@@ -294,6 +362,7 @@
 		};
 		B884F1C81EF3B1F700A7C394 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F991671C17785461E24F2D65 /* Pods-App 21.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "App 21/Info.plist";

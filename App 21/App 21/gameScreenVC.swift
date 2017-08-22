@@ -8,6 +8,18 @@
 
 import UIKit
 
+//MARK: Fatih'in söyleyeceği cümleler.
+let saysSentece = ["Korktun Heralde", "Seni bulacağım kaçma, seni bulacağım"]
+
+//MARK: Kazanan kişinin tutulduğu nesne.
+public var winnerLabel: String = "Fatih Kazandı!"
+
+//Fatih kazandığında yazılaacak olan cümleler.
+let winnerSentece = ["Fatih'in İstanbul'u fethettiği yaştayım beni yenebileceğini mi zannetin.","Ses, nefes ve enfes"]
+
+//Fatih yenildiği zaman yazılacak olan cümeler.
+let losserSentece = ["Beni ilk yenen kişi sensin.","Yenilen pehlivan güreşe doymazmış gel bir daha kapışalım."]
+
 public var secili1 : Bool = false, secili2 : Bool = false, secili3 : Bool = false
 
 
@@ -37,30 +49,7 @@ class gameScreenVC: UIViewController {
         return true
     }
     
-    //MARK: Süre yazan label nesnesi oluşturuldu.
-    let sureLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Süre"
-        label.numberOfLines = 1
-        label.textColor = UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0)
-        label.font = UIFont(name: "Avenir-Book", size: 25)
-        label.textAlignment = .center
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    //MARK: Saniye yazan label nesnesi oluşturuldu.
-    let zamanLabel: UILabel = {
-        let label = UILabel()
-        label.text = "00:15"
-        label.numberOfLines = 1
-        label.textColor = UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0)
-        label.font = UIFont(name: "Avenir-Book", size: 20)
-        label.textAlignment = .center
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
+    // --------------------------------------------------------------------- gameScreen Nesneleri Başlangıç ------------------------------------------------ //
     //MARK: Durum yazan label nesnesi oluşturuldu.
     let durumLabel: UILabel = {
         let label = UILabel()
@@ -455,9 +444,42 @@ class gameScreenVC: UIViewController {
         return button
     }()
     
+    //gameScreen nesneleri gizleniyor.
+    func gameScreenGizle(){
+        durumLabel.isHidden = true
+        sayiArkaPlanView.isHidden = true
+        number1.isHidden = true
+        number2.isHidden = true
+        number3.isHidden = true
+        number4.isHidden = true
+        number5.isHidden = true
+        number6.isHidden = true
+        number7.isHidden = true
+        number8.isHidden = true
+        number9.isHidden = true
+        number10.isHidden = true
+        number11.isHidden = true
+        number12.isHidden = true
+        number13.isHidden = true
+        number14.isHidden = true
+        number15.isHidden = true
+        number16.isHidden = true
+        number17.isHidden = true
+        number18.isHidden = true
+        number19.isHidden = true
+        number20.isHidden = true
+        number21.isHidden = true
+        oynaButton.isHidden = true
+        pasGecButton.isHidden = true
+        fatihLabel.isHidden = true
+        secilecek1Button.isHidden = true
+        secilecek2Button.isHidden = true
+        secilecek3Button.isHidden = true
+    }
+    
     //MARK: goAgainButton fonksiyonu. Oyunun tekrar başlamasını sağlıyor.
     func gostoppedButton(sender: UIButton!){
-        self.navigationController?.pushViewController(gamestoppedScreenVC(), animated: true)
+        
     }
     
     //MARK: goMainButton fonksiyonu. Ana ekrana gidiyor.
@@ -1026,11 +1048,93 @@ class gameScreenVC: UIViewController {
         self.navigationController?.pushViewController(gameScreenVC(), animated: true)
     }
     
+    // --------------------------------------------------------------------------- gameScreen Nesneleri Bitiş -----------------------------------------------------//
+    
+    // --------------------------------------------------------------------------- gameFinishedScreen Nesneleri Başlangıç -----------------------------------------//
+    
+    
+    //MARK: Kazan kişinin yazıldığı nesne.
+    let winLabel: UILabel = {
+        let label = UILabel()
+        label.text = winnerLabel
+        label.numberOfLines = 1
+        label.textColor = UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0)
+        label.font = UIFont(name: "Avenir-Book", size: 36)
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    //MARK: Oyun bittiğinde kazanan ya da kaybedenin durumuna göre ekrana yazılacak cümlelerin yazıldığı nesne.
+    let senteceLabel: UILabel = {
+        let label = UILabel()
+        label.text = winnerSentece[0]
+        label.numberOfLines = 5
+        label.textColor = UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0)
+        label.font = UIFont(name: "Avenir-Book", size: 18)
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    //MARK: againButton nesnesi oluşturuldu
+    let againButton: UIButton = {
+        let button = UIButton()
+        button.setImage(#imageLiteral(resourceName: "againButton_bg"), for: .normal)
+        button.addTarget(self, action: #selector(goAgainButton), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    //MARK: goAgainButton fonksiyonu. Oyunun tekrar başlamasını sağlıyor.
+    func goAgainButton(sender: UIButton!){
+        self.navigationController?.pushViewController(gameScreenVC(), animated: true)
+    }
+    
+    func gameFinishedGizle(){
+        winLabel.isHidden = false
+        senteceLabel.isHidden = false
+    }
+    
+    func gameFinishedGoster(){
+        winLabel.isHidden = true
+        senteceLabel.isHidden = true
+    }
+
+    
+    // --------------------------------------------------------------------------- gameFinishedScreen Nesneleri Bitiş ---------------------------------------------//
+    
+    // --------------------------------------------------------------------------- gameStoppedScreen Nesneleri Başlangıç ------------------------------------------//
+    
+    //MARK: 21 yazacak label nesnesi oluşturuldu.
+    let number21Label: UILabel = {
+        let label = UILabel()
+        label.text = "21"
+        label.numberOfLines = 1
+        label.textColor = UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0)
+        label.font = UIFont(name: "Avenir-Book", size: 100)
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    //MARK: Says label nesnesi oluşturuldu.
+    let saysLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Fatih diyor ki: \(saysSentece[1])!'"
+        label.numberOfLines = 5
+        label.textColor = UIColor(red: 0.31, green: 0.36, blue: 0.43, alpha: 1.0)
+        label.textAlignment = .center
+        label.font = UIFont(name: "Avenir-Book", size: 25)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    // --------------------------------------------------------------------------- gameStoppedScreen Nesneleri Bitiş ----------------------------------------------//
+    
     //MARK: Nesneler ekrana ekleniyor ve constraint değerleri belirleniyor.
     func setupViews(){
         //MARK: Nesneler ekranan ekleniyor.
-        view.addSubview(sureLabel)
-        view.addSubview(zamanLabel)
         view.addSubview(durumLabel)
         view.addSubview(sayiArkaPlanView)
         view.addSubview(number1)
@@ -1064,14 +1168,7 @@ class gameScreenVC: UIViewController {
         view.addSubview(pasGecButton)
         
         //MARK: Nesnelerin constraint değerleri belirleniyor.
-        let sureLabelTop = NSLayoutConstraint(item: sureLabel, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1.0, constant: 25)
-        let sureLabelLeft = NSLayoutConstraint(item: sureLabel, attribute: .left, relatedBy: .equal, toItem: self.view, attribute: .left, multiplier: 1.0, constant: 25)
-        
-        let zamanLabelTop = NSLayoutConstraint(item: zamanLabel, attribute: .top, relatedBy: .equal, toItem: self.sureLabel, attribute: .top, multiplier: 1.0, constant: 25)
-        let zamanLabelLeft = NSLayoutConstraint(item: zamanLabel, attribute: .left, relatedBy: .equal, toItem: self.view, attribute: .left, multiplier: 1.0, constant: 25)
-        
         let durumLabelTop = NSLayoutConstraint(item: durumLabel, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1.0, constant: 10)
-        let durumLabelLeft = NSLayoutConstraint(item: durumLabel, attribute: .left, relatedBy: .equal, toItem: self.sureLabel, attribute: .left, multiplier: 1.0, constant: 55)
         let durumLabelRight = NSLayoutConstraint(item: durumLabel, attribute: .rightMargin, relatedBy: .equal, toItem: self.view, attribute: .rightMargin, multiplier: 1.0, constant: 20)
         
         let sayiTop = NSLayoutConstraint(item: sayiArkaPlanView, attribute: .top, relatedBy: .equal, toItem: self.durumLabel, attribute: .top, multiplier: 1.0, constant: 75)
@@ -1217,6 +1314,6 @@ class gameScreenVC: UIViewController {
         let pasGecButonWidth = NSLayoutConstraint(item: pasGecButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 85)
         
         //MARK: Nesnelerin constraint değerleri ekrana ekleniyor.
-        NSLayoutConstraint.activate([sureLabelTop,sureLabelLeft,zamanLabelTop,zamanLabelLeft,durumLabelTop,durumLabelLeft,durumLabelRight,sayiTop,sayiHeifgt,sayiLeft,sayiRight,number1Top,number1Left,number1Width,number1Height,number2Top,number2Left,number2Width,number2Height,number3Top,number3Left,number3Width,number3Height,number4Top,number4Left,number4Width,number4Height,number5Top,number5Left,number5Width,number5Height,number6Top,number6Left,number6Width,number6Height,number7Top,number7Left,number7Width,number7Height,number8Top,number8Left,number8Width,number8Height,number9Top,number9Left,number9Width,number9Height,number10Top,number10Left,number10Width,number10Height,number11Top,number11Left,number11Width,number11Height,number12Top,number12Left,number12Width,number12Height,number13Top,number13Left,number13Width,number13Height,number14Top,number14Left,number14Width,number14Height,number15Top,number15Left,number15Width,number15Height,number16Top,number16Left,number16Width,number16Height,number17Top,number17Left,number17Width,number17Height,number18Top,number18Left,number18Width,number18Height,number19Top,number19Left,number19Width,number19Height,number20Top,number20Left,number20Width,number20Height,number21Top,number21Left,number21Width,number21Height,secilecek1Top,secilecek1Left,secilecek1Width,secilecek1Height,secilecek2Top,secilecek2Left,secilecek2Width,secilecek2Height,secilecek3Top,secilecek3Left,secilecek3Width,secilecek3Height,fatihLabelTop,fatihLabelCenter,mainButtonBottom,mainButtonLeft,stoppedButtonBottom,stoppedButtonRight,oynaButtonLeft,oynaButtonBottom,oynaButonWidth,pasGecButonWidth,pasGecButtonRight,pasGecButtonBottom])
+        NSLayoutConstraint.activate([durumLabelTop,durumLabelRight,sayiTop,sayiHeifgt,sayiLeft,sayiRight,number1Top,number1Left,number1Width,number1Height,number2Top,number2Left,number2Width,number2Height,number3Top,number3Left,number3Width,number3Height,number4Top,number4Left,number4Width,number4Height,number5Top,number5Left,number5Width,number5Height,number6Top,number6Left,number6Width,number6Height,number7Top,number7Left,number7Width,number7Height,number8Top,number8Left,number8Width,number8Height,number9Top,number9Left,number9Width,number9Height,number10Top,number10Left,number10Width,number10Height,number11Top,number11Left,number11Width,number11Height,number12Top,number12Left,number12Width,number12Height,number13Top,number13Left,number13Width,number13Height,number14Top,number14Left,number14Width,number14Height,number15Top,number15Left,number15Width,number15Height,number16Top,number16Left,number16Width,number16Height,number17Top,number17Left,number17Width,number17Height,number18Top,number18Left,number18Width,number18Height,number19Top,number19Left,number19Width,number19Height,number20Top,number20Left,number20Width,number20Height,number21Top,number21Left,number21Width,number21Height,secilecek1Top,secilecek1Left,secilecek1Width,secilecek1Height,secilecek2Top,secilecek2Left,secilecek2Width,secilecek2Height,secilecek3Top,secilecek3Left,secilecek3Width,secilecek3Height,fatihLabelTop,fatihLabelCenter,mainButtonBottom,mainButtonLeft,stoppedButtonBottom,stoppedButtonRight,oynaButtonLeft,oynaButtonBottom,oynaButonWidth,pasGecButonWidth,pasGecButtonRight,pasGecButtonBottom])
     }
 }
