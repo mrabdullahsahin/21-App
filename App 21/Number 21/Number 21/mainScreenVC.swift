@@ -13,7 +13,6 @@ class mainScreenVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
     //MARK: navigationBar gizlendi.
@@ -80,7 +79,7 @@ class mainScreenVC: UIViewController {
     
     //MARK: settingsButton fonksiyonu.
     func settingsButton(sender: UIButton!){
-        self.navigationController?.pushViewController(mainScreenVC(), animated: true)
+        self.navigationController?.pushViewController(settingsScreenVC(), animated: true)
     }
     
     // MARK: - nesneler ekrana yerleştiriliyor.
