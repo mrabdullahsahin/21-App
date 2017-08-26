@@ -13,6 +13,7 @@
 		B86CD0C61F512BD100F2776C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B86CD0C51F512BD100F2776C /* Assets.xcassets */; };
 		B86CD0C91F512BD100F2776C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B86CD0C71F512BD100F2776C /* LaunchScreen.storyboard */; };
 		B86CD0D11F51321B00F2776C /* otherCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86CD0D01F51321B00F2776C /* otherCode.swift */; };
+		B86CD0D31F513AC200F2776C /* howToPlayScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86CD0D21F513AC200F2776C /* howToPlayScreenVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		B86CD0C81F512BD100F2776C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B86CD0CA1F512BD100F2776C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B86CD0D01F51321B00F2776C /* otherCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = otherCode.swift; sourceTree = "<group>"; };
+		B86CD0D21F513AC200F2776C /* howToPlayScreenVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = howToPlayScreenVC.swift; sourceTree = "<group>"; };
 		FBB2AEAD9879A258102842E9 /* Pods_Number_21.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Number_21.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -80,6 +82,7 @@
 			children = (
 				B86CD0BE1F512BD100F2776C /* AppDelegate.swift */,
 				B86CD0C01F512BD100F2776C /* mainScreenVC.swift */,
+				B86CD0D21F513AC200F2776C /* howToPlayScreenVC.swift */,
 				B86CD0D01F51321B00F2776C /* otherCode.swift */,
 				B86CD0C51F512BD100F2776C /* Assets.xcassets */,
 				B86CD0C71F512BD100F2776C /* LaunchScreen.storyboard */,
@@ -212,6 +215,7 @@
 			files = (
 				B86CD0D11F51321B00F2776C /* otherCode.swift in Sources */,
 				B86CD0C11F512BD100F2776C /* mainScreenVC.swift in Sources */,
+				B86CD0D31F513AC200F2776C /* howToPlayScreenVC.swift in Sources */,
 				B86CD0BF1F512BD100F2776C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

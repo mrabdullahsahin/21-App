@@ -75,7 +75,7 @@ class mainScreenVC: UIViewController {
     
     //MARK: howToPlayButton fonksiyonu.
     func howToPlayButton(sender: UIButton!){
-        self.navigationController?.pushViewController(mainScreenVC(), animated: true)
+        self.navigationController?.pushViewController(howToPlayScreenVC(), animated: true)
     }
     
     //MARK: settingsButton fonksiyonu.

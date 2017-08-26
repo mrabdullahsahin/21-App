@@ -27,12 +27,16 @@ extension UIFont {
 
 extension UIButton {
     
-    // buttonlar için gerekli özellikler tanımlanıyor.
     func allDesign(){
         self.backgroundColor = UIColor.darkBlueColor()
         self.titleLabel?.font = UIFont.allFontType(withSize: 36)
         self.setTitleColor(UIColor.white, for: UIControlState.normal)
         self.layer.cornerRadius = 5
+    }
+    
+    func otherDesign() {
+        self.setTitleColor(UIColor.darkBlueColor(), for: UIControlState.normal)
+        self.titleLabel?.font = UIFont.allFontType(withSize: 36)
     }
 }
 
