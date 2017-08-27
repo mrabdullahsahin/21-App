@@ -38,5 +38,31 @@ extension UIButton {
         self.setTitleColor(UIColor.darkBlueColor(), for: UIControlState.normal)
         self.titleLabel?.font = UIFont.allFontType(withSize: 36)
     }
+    
+    func numberDesign(){
+        self.backgroundColor = UIColor.clear
+        self.layer.borderColor = UIColor.white.cgColor
+        self.layer.borderWidth = 1
+        self.layer.cornerRadius = 20
+        self.setTitleColor(UIColor.white, for: UIControlState.normal)
+        self.titleLabel?.font = UIFont.allFontType(withSize: 25)
+    }
+    
+    func secilecekButtonDesign(){
+        self.backgroundColor = UIColor.white
+        self.layer.borderColor = UIColor.darkBlueColor().cgColor
+        self.layer.borderWidth = 1
+        self.layer.cornerRadius = 30
+        self.setTitleColor(UIColor.darkBlueColor(), for: UIControlState.normal)
+        self.titleLabel?.font = UIFont.allFontType(withSize: 25)
+    }
+    
+    func gameButtonDesign(){
+        self.backgroundColor = UIColor.white
+        self.layer.cornerRadius = 5
+        self.layer.borderWidth = 1
+        self.layer.borderColor = UIColor.darkBlueColor().cgColor
+        self.setTitleColor(UIColor.darkBlueColor(), for: UIControlState.normal)
+        self.titleLabel?.font = UIFont.allFontType(withSize: 20)
+    }
 }
-

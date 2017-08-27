@@ -69,7 +69,7 @@ class mainScreenVC: UIViewController {
     
     //MARK: startButton fonksiyonu.
     func startButton(sender: UIButton!){
-        self.navigationController?.pushViewController(mainScreenVC(), animated: true)
+        self.navigationController?.pushViewController(gameScreenVC(), animated: true)
     }
     
     //MARK: howToPlayButton fonksiyonu.
